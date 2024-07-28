@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.20",
     "autoprefixer": "^10.4.19",
     "lucide-react": "^0.416.0",
     "postcss": "^8.4.40",
