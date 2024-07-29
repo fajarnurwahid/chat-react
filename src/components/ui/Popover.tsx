@@ -212,7 +212,7 @@ export function PopoverMenu({
     ...props
 }: {
     children: React.ReactNode;
-} & React.HTMLProps<HTMLUListElement>) {
+} & React.HTMLAttributes<HTMLUListElement>) {
     return (
         <ul
             className={twMerge(
@@ -242,7 +242,7 @@ export function PopoverMenuItem({
         <li>
             <button
                 className={twMerge(
-                    "h-8 px-3 flex items-center rounded-md hover:bg-neutral-100 text-sm w-full text-neutral-500 hover:text-neutral-700 space-x-3 [&.active]:text-blue-500 [&.active]:bg-blue-50",
+                    "h-7 px-3 flex items-center rounded-md hover:bg-neutral-100 text-xs w-full text-neutral-500 hover:text-neutral-700 space-x-3 [&.active]:text-blue-500 [&.active]:bg-blue-50",
                     className,
                     isActive && "active"
                 )}

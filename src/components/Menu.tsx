@@ -11,7 +11,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/Tooltip";
 
 export default function Menu() {
     return (
-        <div className="w-full md:h-full md:w-16 border-r border-neutral-200 flex items-center md:flex-col fixed md:static bottom-0 left-0 border-t border-t-neutral-200 md:border-t-0">
+        <div className="w-full md:h-full md:w-16 border-r border-neutral-200 flex items-center md:flex-col flex-shrink-0 fixed md:static z-10 bottom-0 left-0 border-t border-t-neutral-200 md:border-t-0 bg-white">
             <div className="h-16 hidden md:flex items-center justify-center flex-shrink-0">
                 <Link to="/" className="text-3xl font-bold">
                     C
