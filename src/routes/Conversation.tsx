@@ -1,3 +1,9 @@
+import ConversationTopbar from "../components/ConversationTopbar";
+
 export default function Conversation() {
-    return <div>Conversation</div>;
+    return (
+        <div className="min-w-0 w-full">
+            <ConversationTopbar />
+        </div>
+    );
 }

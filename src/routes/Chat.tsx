@@ -13,14 +13,15 @@ import {
     PopoverMenu,
     PopoverMenuItem,
 } from "../components/ui/Popover";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-} from "../components/ui/Tooltip";
 import Input from "../components/ui/Input";
 import ChatItem from "../components/ChatItem";
 import { twMerge } from "tailwind-merge";
+import {
+    Dialog,
+    DialogBody,
+    DialogContent,
+    DialogTrigger,
+} from "../components/ui/Dialog";
 
 type ChatProps = {
     isIndex?: boolean;
@@ -38,17 +39,28 @@ export default function Chat({ isIndex = false }: ChatProps) {
                 <div className="flex items-center justify-between">
                     <h1 className="text-xl font-semibold">Chats</h1>
                     <div className="flex items-center space-x-2">
-                        <Tooltip>
-                            <TooltipTrigger asChild>
+                        <Dialog>
+                            <DialogTrigger asChild>
                                 <button
                                     type="button"
                                     className="w-7 h-7 flex items-center justify-center rounded-md bg-blue-50 text-blue-500 hover:bg-blue-500 hover:text-neutral-100"
                                 >
                                     <Plus size={16} />
                                 </button>
-                            </TooltipTrigger>
-                            <TooltipContent>Add contact</TooltipContent>
-                        </Tooltip>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogBody>
+                                    <div className="p-4">
+                                        <p className="font-semibold mb-3">
+                                            Search by Name
+                                        </p>
+                                        <form>
+                                            <Input type="text" />
+                                        </form>
+                                    </div>
+                                </DialogBody>
+                            </DialogContent>
+                        </Dialog>
                         <Popover placement="bottom-end">
                             <PopoverTrigger asChild>
                                 <button
@@ -100,95 +112,15 @@ export default function Chat({ isIndex = false }: ChatProps) {
                     name="Jonathan"
                     lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
                     time="10:00 AM"
+                    unRead={5}
                 />
                 <ChatItem
-                    to="/jonathan"
+                    to="/johndoe"
                     image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isRead={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
+                    name="John Doe"
                     lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
                     time="10:00 AM"
                     isOnline={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isOnline={true}
-                    isRead={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isRead={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isOnline={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isOnline={true}
-                    isRead={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isRead={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isOnline={true}
-                />
-                <ChatItem
-                    to="/jonathan"
-                    image="https://github.com/shadcn.png"
-                    name="Jonathan"
-                    lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
-                    time="10:00 AM"
-                    isOnline={true}
-                    isRead={true}
                 />
             </div>
         </div>
