@@ -148,10 +148,7 @@ export const DialogContent = React.forwardRef<
     return (
         <FloatingPortal>
             <FloatingOverlay
-                className={twMerge(
-                    "bg-black/50 z-50 overflow-y-auto p-4",
-                    props.className
-                )}
+                className="bg-black/50 z-30 overflow-y-auto"
                 lockScroll
             >
                 <FloatingFocusManager context={floatingContext}>
@@ -160,6 +157,10 @@ export const DialogContent = React.forwardRef<
                         aria-labelledby={context.labelId}
                         aria-describedby={context.descriptionId}
                         {...context.getFloatingProps(props)}
+                        className={twMerge(
+                            "mx-auto max-w-md px-4 min-h-[calc(100vh-32px)] my-4 pointer-events-none flex items-start",
+                            props.className
+                        )}
                     >
                         {props.children}
                     </div>
@@ -177,6 +178,7 @@ export const DialogClose = React.forwardRef<
     return (
         <button
             type="button"
+            className={twMerge("absolute top-4 right-4", props.className)}
             {...props}
             ref={ref}
             onClick={() => setOpen(false)}
@@ -201,7 +203,7 @@ export const DialogBody = React.forwardRef<
     return (
         <div
             className={twMerge(
-                "bg-white max-w-md w-full rounded-lg mx-auto",
+                "bg-white w-full rounded-lg pointer-events-auto",
                 className
             )}
             {...props}
