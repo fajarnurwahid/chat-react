@@ -12,7 +12,7 @@ import {
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "./ui/Popover";
+} from "../ui/Popover";
 
 export default function ConversationTopbar() {
     return (

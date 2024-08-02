@@ -1,14 +1,15 @@
-import ConversationBottom from "../components/ConversationBottom";
-import ConversationMessageItem, {
-    ConversationMessageItemBubble,
-} from "../components/ConversationMessageItem";
-import ConversationTopbar from "../components/ConversationTopbar";
+import ConversationBottom from "../components/conversation/ConversationBottom";
+import ConversationMessageItem from "../components/conversation/ConversationMessageItem";
+import ConversationMessageItemBubble from "../components/conversation/ConversationMessageItemBubble";
+import ConversationMessageItemCall from "../components/conversation/ConversationMessageItemCall";
+import ConversationMessageItemImage from "../components/conversation/ConversationMessageItemImage";
+import ConversationTopbar from "../components/conversation/ConversationTopbar";
 
 export default function Conversation() {
     return (
         <div className="min-w-0 w-full flex flex-col">
             <ConversationTopbar />
-            <div className="overflow-y-auto h-full min-h-0 p-4 bg-neutral-100 space-y-4">
+            <div className="overflow-y-auto h-full min-h-0 p-4 bg-neutral-50 space-y-4">
                 <ConversationMessageItem image="https://github.com/shadcn.png">
                     <ConversationMessageItemBubble
                         time="10:00 AM"
@@ -23,10 +24,12 @@ export default function Conversation() {
                         time="10:00 AM"
                         isRead={true}
                     >
-                        <img
-                            src="https://github.com/shadcn.png"
-                            className="w-full max-w-48 rounded mb-2"
-                            alt=""
+                        <ConversationMessageItemImage
+                            images={[
+                                {
+                                    src: "https://github.com/shadcn.png",
+                                },
+                            ]}
                         />
                         <p>Hello there</p>
                     </ConversationMessageItemBubble>
@@ -48,10 +51,18 @@ export default function Conversation() {
                         time="10:00 AM"
                         isRead={true}
                     >
-                        <img
-                            src="https://github.com/shadcn.png"
-                            className="w-full max-w-48 rounded mb-2"
-                            alt=""
+                        <ConversationMessageItemImage
+                            images={[
+                                {
+                                    src: "https://github.com/shadcn.png",
+                                },
+                                {
+                                    src: "https://github.com/shadcn.png",
+                                },
+                                {
+                                    src: "https://github.com/shadcn.png",
+                                },
+                            ]}
                         />
                         <p>Hello there</p>
                     </ConversationMessageItemBubble>
@@ -72,6 +83,15 @@ export default function Conversation() {
                             tempora magnam modi commodi dolorem corporis libero
                             possimus iste!
                         </p>
+                    </ConversationMessageItemBubble>
+                    <ConversationMessageItemBubble time="10:00 AM">
+                        <ConversationMessageItemCall type="audio" />
+                    </ConversationMessageItemBubble>
+                    <ConversationMessageItemBubble time="10:00 AM">
+                        <ConversationMessageItemCall
+                            type="video"
+                            isMissed={true}
+                        />
                     </ConversationMessageItemBubble>
                 </ConversationMessageItem>
             </div>

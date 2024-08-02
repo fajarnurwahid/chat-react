@@ -15,7 +15,7 @@ import {
     PopoverMenuItem,
 } from "../components/ui/Popover";
 import Input from "../components/ui/Input";
-import ChatItem from "../components/ChatItem";
+import ChatItem from "../components/chat/ChatItem";
 import { twMerge } from "tailwind-merge";
 import {
     Dialog,
@@ -24,7 +24,7 @@ import {
     DialogContent,
     DialogTrigger,
 } from "../components/ui/Dialog";
-import ChatContactItem from "../components/ChatContactItem";
+import ChatContactItem from "../components/chat/ChatContactItem";
 
 type ChatProps = {
     isIndex?: boolean;

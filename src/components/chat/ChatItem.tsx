@@ -6,7 +6,7 @@ import {
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "./ui/Popover";
+} from "../ui/Popover";
 import { twMerge } from "tailwind-merge";
 
 type ChatItemProps = LinkProps & {

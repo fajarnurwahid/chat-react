@@ -1,70 +1,20 @@
 import { Archive, Check, CheckCheck, MoreVertical } from "lucide-react";
-import { useContext, createContext } from "react";
-import { twMerge } from "tailwind-merge";
 import {
     Popover,
     PopoverContent,
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "./ui/Popover";
-
-type ConversationMessageContextType = {
-    isMe?: boolean;
-};
-type ConversationMessageItemProps = {
-    children: React.ReactNode;
-    image: string;
-    isMe?: boolean;
-};
+} from "../ui/Popover";
+import { useConversationMessageContext } from "./ConversationMessageItem";
+import { twMerge } from "tailwind-merge";
 type ConversationMessageItemBubbleProps = {
     children: React.ReactNode;
     isRead?: boolean;
     time: string;
 };
 
-const ConversationMessageContext =
-    createContext<ConversationMessageContextType>({
-        isMe: false,
-    });
-
-export function useConversationMessageContext() {
-    const context = useContext(ConversationMessageContext);
-    if (!context) {
-        throw new Error(
-            "useConversationMessageContext must be used within a ConversationMessageContext"
-        );
-    }
-    return context;
-}
-
-export default function ConversationMessageItem({
-    children,
-    image,
-    isMe = false,
-}: ConversationMessageItemProps) {
-    return (
-        <ConversationMessageContext.Provider value={{ isMe }}>
-            <div
-                className={twMerge(
-                    "flex items-end md:space-x-2",
-                    isMe && "flex-row-reverse space-x-reverse"
-                )}
-            >
-                {!isMe && (
-                    <img
-                        src={image}
-                        alt=""
-                        className="w-6 h-6 rounded-full flex-shrink-0 hidden md:block"
-                    />
-                )}
-                <div className="w-full min-w-0 space-y-2">{children}</div>
-            </div>
-        </ConversationMessageContext.Provider>
-    );
-}
-
-export function ConversationMessageItemBubble({
+export default function ConversationMessageItemBubble({
     children,
     isRead = false,
     time,
@@ -81,7 +31,7 @@ export function ConversationMessageItemBubble({
             <div
                 className={twMerge(
                     "px-3 pt-3 pb-6 bg-white rounded-lg shadow max-w-lg relative text-neutral-700 text-sm leading-normal mr-6",
-                    isMe && "bg-blue-200 shadow-none mr-0 ml-6"
+                    isMe && "bg-blue-100 shadow-none mr-0 ml-6"
                 )}
             >
                 {children}
