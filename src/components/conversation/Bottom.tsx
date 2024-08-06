@@ -1,7 +1,7 @@
 import { MoreHorizontal, Smile, Mic, Send } from "lucide-react";
 import Input from "../ui/Input";
 
-export default function ConversationBottom() {
+export default function Bottom() {
     return (
         <form className="flex items-center space-x-2 md:space-x-3 h-16 bg-white border-t border-t-neutral-200 flex-shrink-0 px-4">
             <div className="flex md:space-x-1">

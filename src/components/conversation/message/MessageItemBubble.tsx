@@ -1,25 +1,25 @@
 import { Archive, Check, CheckCheck, MoreVertical } from "lucide-react";
+import { useMessageContext } from "./MessageItem";
+import { twMerge } from "tailwind-merge";
 import {
     Popover,
     PopoverContent,
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "../ui/Popover";
-import { useConversationMessageContext } from "./ConversationMessageItem";
-import { twMerge } from "tailwind-merge";
-type ConversationMessageItemBubbleProps = {
+} from "../../ui/Popover";
+type MessageItemBubbleProps = {
     children: React.ReactNode;
     isRead?: boolean;
     time: string;
 };
 
-export default function ConversationMessageItemBubble({
+export default function MessageItemBubble({
     children,
     isRead = false,
     time,
-}: ConversationMessageItemBubbleProps) {
-    const { isMe } = useConversationMessageContext();
+}: MessageItemBubbleProps) {
+    const { isMe } = useMessageContext();
 
     return (
         <div

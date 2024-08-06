@@ -5,6 +5,7 @@ import {
     offset,
     flip,
     shift,
+    hide,
     useClick,
     useDismiss,
     useRole,
@@ -53,6 +54,7 @@ export function usePopover({
                 padding: 5,
             }),
             shift({ padding: 5 }),
+            hide(),
         ],
     });
 
@@ -179,7 +181,10 @@ export const PopoverContent = React.forwardRef<
                     style={{ ...context.floatingStyles, ...style }}
                     aria-labelledby={context.labelId}
                     aria-describedby={context.descriptionId}
-                    className="z-40"
+                    className={twMerge(
+                        "z-40",
+                        context.middlewareData.hide?.referenceHidden && "hidden"
+                    )}
                     {...context.getFloatingProps(props)}
                 >
                     {props.children}

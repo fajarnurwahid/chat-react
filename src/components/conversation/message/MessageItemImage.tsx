@@ -2,23 +2,27 @@ import { twMerge } from "tailwind-merge";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-Fancybox.bind('[data-fancybox="gallery"]', {});
+Fancybox.bind("[data-fancybox]", {});
 
-type ConversationMessageItemImageProps = {
+type MessageItemImageProps = React.HTMLAttributes<HTMLDivElement> & {
     images: React.ImgHTMLAttributes<HTMLImageElement>[];
 };
 
-export default function ConversationMessageItemImage({
+export default function MessageItemImage({
     images,
-}: ConversationMessageItemImageProps) {
+    className,
+    ...props
+}: MessageItemImageProps) {
     return (
         <div
             className={twMerge(
-                "max-w-64 mb-3",
+                "max-w-64",
                 images.length > 1 && "grid grid-cols-3 gap-2",
                 images.length === 2 && "grid-cols-2",
-                images.length === 0 && "hidden"
+                images.length === 0 && "hidden",
+                className
             )}
+            {...props}
         >
             {images.map((image, i) => (
                 <img

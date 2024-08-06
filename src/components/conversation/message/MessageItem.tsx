@@ -1,37 +1,36 @@
 import { useContext, createContext } from "react";
 import { twMerge } from "tailwind-merge";
 
-type ConversationMessageContextType = {
+type MessageContextType = {
     isMe?: boolean;
 };
-type ConversationMessageItemProps = {
+type MessageItemProps = {
     children: React.ReactNode;
     image: string;
     isMe?: boolean;
 };
 
-const ConversationMessageContext =
-    createContext<ConversationMessageContextType>({
-        isMe: false,
-    });
+const MessageContext = createContext<MessageContextType>({
+    isMe: false,
+});
 
-export function useConversationMessageContext() {
-    const context = useContext(ConversationMessageContext);
+export function useMessageContext() {
+    const context = useContext(MessageContext);
     if (!context) {
         throw new Error(
-            "useConversationMessageContext must be used within a ConversationMessageContext"
+            "useMessageContext must be used within a MessageContext"
         );
     }
     return context;
 }
 
-export default function ConversationMessageItem({
+export default function MessageItem({
     children,
     image,
     isMe = false,
-}: ConversationMessageItemProps) {
+}: MessageItemProps) {
     return (
-        <ConversationMessageContext.Provider value={{ isMe }}>
+        <MessageContext.Provider value={{ isMe }}>
             <div
                 className={twMerge(
                     "flex items-end md:space-x-2",
@@ -47,6 +46,6 @@ export default function ConversationMessageItem({
                 )}
                 <div className="w-full min-w-0 space-y-2">{children}</div>
             </div>
-        </ConversationMessageContext.Provider>
+        </MessageContext.Provider>
     );
 }

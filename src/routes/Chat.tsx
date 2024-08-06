@@ -24,7 +24,7 @@ import {
     DialogContent,
     DialogTrigger,
 } from "../components/ui/Dialog";
-import ChatContactItem from "../components/chat/ChatContactItem";
+import ContactItem from "../components/chat/ContactItem";
 
 type ChatProps = {
     isIndex?: boolean;
@@ -34,11 +34,11 @@ export default function Chat({ isIndex = false }: ChatProps) {
     return (
         <div
             className={twMerge(
-                "h-full w-full md:w-72 border-r border-r-neutral-200 flex flex-col flex-shrink-0",
-                !isIndex && "hidden md:flex"
+                "h-full w-full lg:w-72 border-r border-r-neutral-200 flex flex-col lg:flex-shrink-0",
+                !isIndex && "hidden lg:flex"
             )}
         >
-            <div className="pt-6 pb-4 px-4 md:px-6 flex-shrink-0">
+            <div className="pt-6 pb-4 px-4 lg:px-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                     <h1 className="text-xl font-semibold">Chats</h1>
                     <div className="flex items-center space-x-2">
@@ -72,46 +72,46 @@ export default function Chat({ isIndex = false }: ChatProps) {
                                         </form>
                                     </div>
                                     <div className="max-h-96 overflow-y-auto pb-4">
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="Jonathan"
                                             isOnline={true}
                                             status="online"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="John Doe"
                                             status="Last seen 4h ago"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="Jonathan"
                                             isOnline={true}
                                             status="online"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="John Doe"
                                             status="Last seen 4h ago"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="Jonathan"
                                             isOnline={true}
                                             status="online"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="John Doe"
                                             status="Last seen 4h ago"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="Jonathan"
                                             isOnline={true}
                                             status="online"
                                         />
-                                        <ChatContactItem
+                                        <ContactItem
                                             image="https://github.com/shadcn.png"
                                             name="John Doe"
                                             status="Last seen 4h ago"

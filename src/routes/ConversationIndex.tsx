@@ -1,6 +1,6 @@
 export default function ConversationIndex() {
     return (
-        <div className="hidden w-full md:flex items-center justify-center">
+        <div className="hidden w-full lg:flex items-center justify-center">
             <div className="p-4 max-w-md">
                 <h1 className="text-center text-2xl font-semibold leading-tight mb-4">
                     Get Started with Chat

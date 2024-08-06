@@ -7,19 +7,19 @@ import {
     PopoverTrigger,
 } from "../ui/Popover";
 
-type ChatContactItemProps = {
+type ContactItemProps = {
     image: string;
     name: string;
     status: string;
     isOnline?: boolean;
 };
 
-export default function ChatContactItem({
+export default function ContactItem({
     image,
     name,
     status,
     isOnline = false,
-}: ChatContactItemProps) {
+}: ContactItemProps) {
     return (
         <div className="flex items-center justify-between h-12 px-4 space-x-3">
             <div className="w-full min-w-0 flex items-center space-x-3">

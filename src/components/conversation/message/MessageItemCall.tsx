@@ -1,15 +1,15 @@
 import { PhoneCall, Video } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
-type ConversationMessageItemCallProps = {
+type MessageItemCallProps = {
     type: "audio" | "video";
     isMissed?: boolean;
 };
 
-export default function ConversationMessageItemCall({
+export default function MessageItemCall({
     type,
     isMissed = false,
-}: ConversationMessageItemCallProps) {
+}: MessageItemCallProps) {
     return (
         <div
             className={twMerge(
