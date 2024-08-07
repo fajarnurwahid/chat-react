@@ -1,6 +1,6 @@
 import { ChevronDown, ChevronUp, X, Search as SearchIcon } from "lucide-react";
 import Input from "../ui/Input";
-import { useConversationContext } from "../../routes/Conversation";
+import { useConversationContext } from "../../contexts/ConversationContext";
 
 export default function Search() {
     const { setIsSearchOpen } = useConversationContext();

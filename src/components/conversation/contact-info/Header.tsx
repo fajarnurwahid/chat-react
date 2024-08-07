@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { useConversationContext } from "../../../routes/Conversation";
+import { useConversationContext } from "../../../contexts/ConversationContext";
 
 export default function Header() {
     const { setIsContactInfoOpen } = useConversationContext();

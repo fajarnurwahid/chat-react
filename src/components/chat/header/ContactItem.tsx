@@ -5,7 +5,7 @@ import {
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "../ui/Popover";
+} from "../../ui/Popover";
 
 type ContactItemProps = {
     image: string;

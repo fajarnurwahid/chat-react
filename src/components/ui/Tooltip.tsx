@@ -156,7 +156,7 @@ export const TooltipContent = React.forwardRef<
                     ...style,
                 }}
                 className={twMerge(
-                    "bg-white shadow border border-neutral-100 text-xs truncate h-6 px-2 flex items-center rounded-md font-medium",
+                    "bg-white dark:bg-neutral-900 shadow border border-neutral-100 dark:border-neutral-800 text-xs truncate h-6 px-2 flex items-center rounded-md font-medium z-40",
                     className
                 )}
                 {...context.getFloatingProps(props)}

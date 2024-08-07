@@ -44,6 +44,7 @@ export function usePopover({
     const data = useFloating({
         placement,
         open,
+        strategy: "fixed",
         onOpenChange: setOpen,
         whileElementsMounted: autoUpdate,
         middleware: [
@@ -222,7 +223,7 @@ export function PopoverMenu({
     return (
         <ul
             className={twMerge(
-                "bg-white shadow border border-neutral-100 rounded-lg p-1 w-48 space-y-1",
+                "bg-white dark:bg-neutral-800 shadow border border-neutral-100 dark:border-neutral-700 rounded-lg p-1 w-48 space-y-1",
                 className
             )}
             {...props}
@@ -248,7 +249,7 @@ export function PopoverMenuItem({
         <li>
             <button
                 className={twMerge(
-                    "h-7 px-3 flex items-center rounded-md hover:bg-neutral-100 text-xs w-full text-neutral-500 hover:text-neutral-700 space-x-3 [&.active]:text-blue-500 [&.active]:bg-blue-50",
+                    "h-7 px-3 flex items-center rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900 text-xs w-full text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 space-x-3 [&.active]:text-blue-500 dark:[&.active]:text-blue-400 [&.active]:bg-blue-50 dark:[&.active]:bg-blue-500/20",
                     className,
                     isActive && "active"
                 )}

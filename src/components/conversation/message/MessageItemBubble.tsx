@@ -1,4 +1,12 @@
-import { Archive, Check, CheckCheck, MoreVertical } from "lucide-react";
+import {
+    Bookmark,
+    Check,
+    CheckCheck,
+    Delete,
+    Forward,
+    MoreVertical,
+    Reply,
+} from "lucide-react";
 import { useMessageContext } from "./MessageItem";
 import { twMerge } from "tailwind-merge";
 import {
@@ -49,7 +57,7 @@ export default function MessageItemBubble({
                             type="button"
                             onClick={(e) => e.preventDefault()}
                             className={twMerge(
-                                "text-neutral-500 hidden group-hover/conversation-item-bubble:flex [&[data-state=open]]:flex [&[data-state=open]]:bg-neutral-200 [&[data-state=open]]:text-neutral-700 w-6 h-6 rounded-full hover:bg-neutral-200 items-center justify-center flex-shrink-0 absolute top-0 left-[calc(100%+8px)]",
+                                "text-neutral-500 flex lg:hidden lg:group-hover/conversation-item-bubble:flex [&[data-state=open]]:flex [&[data-state=open]]:bg-neutral-200 [&[data-state=open]]:text-neutral-700 w-6 h-6 rounded-full hover:bg-neutral-200 items-center justify-center flex-shrink-0 absolute top-0 left-[calc(100%+8px)]",
                                 isMe && "left-auto right-[calc(100%+8px)]"
                             )}
                         >
@@ -59,8 +67,20 @@ export default function MessageItemBubble({
                     <PopoverContent>
                         <PopoverMenu className="w-40">
                             <PopoverMenuItem>
-                                <Archive size={14} />
-                                <span>Archive chat</span>
+                                <Reply size={14} />
+                                <span>Reply</span>
+                            </PopoverMenuItem>
+                            <PopoverMenuItem>
+                                <Forward size={14} />
+                                <span>Forward</span>
+                            </PopoverMenuItem>
+                            <PopoverMenuItem>
+                                <Bookmark size={14} />
+                                <span>Bookmark</span>
+                            </PopoverMenuItem>
+                            <PopoverMenuItem>
+                                <Delete size={14} />
+                                <span>Delete</span>
                             </PopoverMenuItem>
                         </PopoverMenu>
                     </PopoverContent>

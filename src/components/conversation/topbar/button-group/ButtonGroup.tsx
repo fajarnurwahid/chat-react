@@ -1,4 +1,4 @@
-import { useConversationContext } from "../../../../routes/Conversation";
+import { useConversationContext } from "../../../../contexts/ConversationContext";
 import {
     Search,
     Video,
@@ -6,6 +6,8 @@ import {
     Info,
     MoreVertical,
     Archive,
+    BellOff,
+    CircleOff,
 } from "lucide-react";
 import {
     Popover,
@@ -46,6 +48,14 @@ export default function ButtonGroup() {
                         <PopoverMenuItem>
                             <Archive size={14} />
                             <span>Archive</span>
+                        </PopoverMenuItem>
+                        <PopoverMenuItem>
+                            <BellOff size={14} />
+                            <span>Muted</span>
+                        </PopoverMenuItem>
+                        <PopoverMenuItem>
+                            <CircleOff size={14} />
+                            <span>Block</span>
                         </PopoverMenuItem>
                     </PopoverMenu>
                 </PopoverContent>
