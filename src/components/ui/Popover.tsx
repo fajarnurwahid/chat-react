@@ -219,9 +219,9 @@ export function PopoverMenu({
     ...props
 }: {
     children: React.ReactNode;
-} & React.HTMLAttributes<HTMLUListElement>) {
+} & React.HTMLAttributes<HTMLDivElement>) {
     return (
-        <ul
+        <div
             className={twMerge(
                 "bg-white dark:bg-neutral-800 shadow border border-neutral-100 dark:border-neutral-700 rounded-lg p-1 w-48 space-y-1",
                 className
@@ -229,38 +229,38 @@ export function PopoverMenu({
             {...props}
         >
             {children}
-        </ul>
+        </div>
     );
 }
 
 export function PopoverMenuItem({
     children,
     onClick,
+    closeOnClick = true,
     className,
     isActive = false,
     ...props
 }: {
     children: React.ReactNode;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     isActive?: boolean;
+    closeOnClick?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
     const { setOpen } = usePopoverContext();
     return (
-        <li>
-            <button
-                className={twMerge(
-                    "h-7 px-3 flex items-center rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900 text-xs w-full text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 space-x-3 [&.active]:text-blue-500 dark:[&.active]:text-blue-400 [&.active]:bg-blue-50 dark:[&.active]:bg-blue-500/20",
-                    className,
-                    isActive && "active"
-                )}
-                onClick={(event) => {
-                    onClick?.(event);
-                    setOpen(false);
-                }}
-                {...props}
-            >
-                {children}
-            </button>
-        </li>
+        <button
+            className={twMerge(
+                "h-7 px-3 flex items-center rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-900 text-xs w-full text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 space-x-3 [&.active]:text-blue-500 dark:[&.active]:text-blue-400 [&.active]:bg-blue-50 dark:[&.active]:bg-blue-500/20",
+                className,
+                isActive && "active"
+            )}
+            onClick={(event) => {
+                onClick?.(event);
+                closeOnClick && setOpen(false);
+            }}
+            {...props}
+        >
+            {children}
+        </button>
     );
 }

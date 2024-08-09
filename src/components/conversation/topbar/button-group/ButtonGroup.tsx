@@ -17,13 +17,21 @@ import {
     PopoverTrigger,
 } from "../../../ui/Popover";
 import ButtonGroupItem from "./ButtonGroupItem";
+import { twMerge } from "tailwind-merge";
 
 export default function ButtonGroup() {
-    const { setIsContactInfoOpen, setIsSearchOpen } = useConversationContext();
+    const { isSearchOpen, setIsContactInfoOpen, setIsSearchOpen } =
+        useConversationContext();
 
     return (
         <div className="flex items-center space-x-1 md:space-x-2 flex-shrink-0">
-            <ButtonGroupItem onClick={() => setIsSearchOpen((prev) => !prev)}>
+            <ButtonGroupItem
+                className={twMerge(
+                    isSearchOpen &&
+                        "bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100"
+                )}
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+            >
                 <Search size={18} />
             </ButtonGroupItem>
             <ButtonGroupItem>
@@ -39,7 +47,7 @@ export default function ButtonGroup() {
             </ButtonGroupItem>
             <Popover placement="bottom-end">
                 <PopoverTrigger asChild>
-                    <ButtonGroupItem>
+                    <ButtonGroupItem className="[&[data-state=open]]:bg-neutral-100 dark:[&[data-state=open]]:bg-neutral-900 [&[data-state=open]]:text-neutral-900 dark:[&[data-state=open]]:text-neutral-100">
                         <MoreVertical size={18} />
                     </ButtonGroupItem>
                 </PopoverTrigger>

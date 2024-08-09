@@ -14,7 +14,7 @@ export default function TabPaneItem({
         <button
             type="button"
             className={twMerge(
-                "h-8 px-2 rounded text-neutral-700 [&.active]:bg-white [&.active]:shadow text-[13px] font-medium w-full",
+                "h-8 px-2 rounded text-neutral-700 dark:text-neutral-300 [&.active]:bg-white dark:[&.active]:bg-neutral-700 [&.active]:shadow text-[13px] font-medium w-full",
                 isActive && "active"
             )}
             {...props}

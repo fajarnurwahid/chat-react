@@ -8,7 +8,7 @@ type TabPaneProps = {
 
 export default function TabPane({ activeTab, setActiveTab }: TabPaneProps) {
     return (
-        <div className="bg-neutral-100 rounded-lg p-1 flex items-center space-x-1 mb-2">
+        <div className="bg-neutral-100 dark:bg-neutral-900 rounded-lg p-1 flex items-center space-x-1 mb-2">
             <TabPaneItem
                 onClick={() => setActiveTab("image")}
                 isActive={activeTab === "image"}

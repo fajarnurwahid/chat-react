@@ -7,7 +7,7 @@ import MessageItemCall from "./MessageItemCall";
 
 export default function Message() {
     return (
-        <div className="overflow-y-auto h-full min-h-0 p-4 bg-neutral-50 space-y-4">
+        <div className="overflow-y-auto h-full min-h-0 p-4 bg-neutral-50 dark:bg-neutral-900 space-y-4">
             <MessageItem image="https://github.com/shadcn.png">
                 <MessageItemBubble time="10:00 AM" isRead={true}>
                     <MessageItemFile
@@ -32,7 +32,10 @@ export default function Message() {
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Sit ab, aliquid voluptatem odio{" "}
-                        <Link to="/" className="text-blue-500 hover:underline">
+                        <Link
+                            to="/"
+                            className="text-blue-500 dark:text-blue-400 hover:underline"
+                        >
                             soluta
                         </Link>{" "}
                         voluptas autem, quam neque fugiat ducimus quod, tempora

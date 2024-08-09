@@ -203,7 +203,7 @@ export const DialogBody = React.forwardRef<
     return (
         <div
             className={twMerge(
-                "bg-white w-full rounded-lg pointer-events-auto",
+                "bg-white dark:bg-neutral-800 w-full rounded-lg pointer-events-auto",
                 className
             )}
             {...props}

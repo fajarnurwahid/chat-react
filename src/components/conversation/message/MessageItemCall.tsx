@@ -11,16 +11,12 @@ export default function MessageItemCall({
     isMissed = false,
 }: MessageItemCallProps) {
     return (
-        <div
-            className={twMerge(
-                "flex items-center space-x-3 border border-blue-500 p-1 pr-3 rounded-md",
-                isMissed && "border-red-500"
-            )}
-        >
+        <div className={twMerge("flex items-center space-x-3 pr-4 rounded-md")}>
             <div
                 className={twMerge(
-                    "w-10 h-10 bg-blue-200 rounded flex items-center justify-center text-blue-500 flex-shrink-0",
-                    isMissed && "bg-red-500 text-neutral-100"
+                    "w-10 h-10 bg-blue-200 dark:bg-blue-500/20 rounded-md flex items-center justify-center text-blue-500 dark:text-blue-400 flex-shrink-0",
+                    isMissed &&
+                        "bg-red-200 dark:bg-red-500/20 text-red-500 dark:text-red-400"
                 )}
             >
                 {type === "audio" ? (

@@ -5,7 +5,7 @@ import {
     PopoverMenu,
     PopoverMenuItem,
     PopoverTrigger,
-} from "../../ui/Popover";
+} from "../../../ui/Popover";
 
 type ContactItemProps = {
     image: string;
@@ -21,7 +21,7 @@ export default function ContactItem({
     isOnline = false,
 }: ContactItemProps) {
     return (
-        <div className="flex items-center justify-between h-12 px-4 space-x-3">
+        <div className="flex items-center justify-between h-14 px-4 space-x-3">
             <div className="w-full min-w-0 flex items-center space-x-3">
                 <div className="relative flex-shrink-0 w-10 h-10">
                     <img
@@ -37,7 +37,7 @@ export default function ContactItem({
                     <p className="font-medium text-sm leading-tight truncate mb-0.5">
                         {name}
                     </p>
-                    <p className="text-xs text-neutral-500 truncate">
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
                         {status}
                     </p>
                 </div>
@@ -47,7 +47,7 @@ export default function ContactItem({
                     <PopoverTrigger asChild>
                         <button
                             type="button"
-                            className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-neutral-100 text-neutral-500 hover:text-neutral-700 [&[data-state=open]]:bg-blue-50 [&[data-state=open]]:text-blue-500"
+                            className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-neutral-100 dark:hover:bg-neutral-900 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 [&[data-state=open]]:bg-blue-50 dark:[&[data-state=open]]:bg-blue-500/20 [&[data-state=open]]:text-blue-500 dark:[&[data-state=open]]:text-blue-400"
                         >
                             <MoreHorizontal size={16} />
                         </button>
