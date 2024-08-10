@@ -1,7 +1,6 @@
 import { twMerge } from "tailwind-merge";
-import Header from "../components/chat/header/Header";
-import Search from "../components/chat/Search";
-import ChatGroup from "../components/chat/chat-group/ChatGroup";
+import Header from "../../components/chat/header/Header";
+import ChatGroup from "../../components/chat/chat-group/ChatGroup";
 
 type ChatProps = {
     isIndex?: boolean;
@@ -15,10 +14,7 @@ export default function Chat({ isIndex = false }: ChatProps) {
                 !isIndex && "hidden lg:flex"
             )}
         >
-            <div className="pt-6 pb-4 px-4 lg:px-6 flex-shrink-0">
-                <Header />
-                <Search />
-            </div>
+            <Header />
             <ChatGroup />
         </div>
     );

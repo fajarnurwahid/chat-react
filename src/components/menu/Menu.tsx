@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 import {
     MessageCircleMore,
     Contact2,
@@ -22,6 +22,7 @@ import useThemeContext from "../../contexts/ThemeContext";
 
 export default function Menu() {
     const { theme, setTheme } = useThemeContext();
+    const location = useLocation();
 
     return (
         <div className="w-full md:min-w-0 md:h-full md:w-16 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-700 flex items-center md:flex-col md:flex-shrink-0 fixed md:static z-10 bottom-0 left-0 border-t border-t-neutral-200 dark:border-t-neutral-700 md:border-t-0 bg-white dark:bg-neutral-800">
@@ -33,7 +34,32 @@ export default function Menu() {
             <div className="space-x-3 md:space-x-0 md:space-y-3 flex items-center md:items-stretch md:flex-col md:py-4 px-4 md:px-0 md:h-full md:min-h-0 md:overflow-y-auto w-full h-16 overflow-x-auto md:overflow-x-visible">
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
-                        <MenuItem to="/" isActive={true}>
+                        <MenuItem
+                            to="/"
+                            isActive={Boolean(
+                                matchPath(
+                                    {
+                                        path: "/",
+                                        end: true,
+                                    },
+                                    location.pathname
+                                ) ||
+                                    (matchPath(
+                                        {
+                                            path: "/:username",
+                                            end: true,
+                                        },
+                                        location.pathname
+                                    ) &&
+                                        !matchPath(
+                                            {
+                                                path: "/status",
+                                                end: true,
+                                            },
+                                            location.pathname
+                                        ))
+                            )}
+                        >
                             <MessageCircleMore size={18} />
                         </MenuItem>
                     </TooltipTrigger>
@@ -41,7 +67,25 @@ export default function Menu() {
                 </Tooltip>
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
-                        <MenuItem to="/">
+                        <MenuItem
+                            to="/status"
+                            isActive={Boolean(
+                                matchPath(
+                                    {
+                                        path: "/status",
+                                        end: true,
+                                    },
+                                    location.pathname
+                                ) ||
+                                    matchPath(
+                                        {
+                                            path: "/status/:username",
+                                            end: true,
+                                        },
+                                        location.pathname
+                                    )
+                            )}
+                        >
                             <CircleDot size={18} />
                         </MenuItem>
                     </TooltipTrigger>

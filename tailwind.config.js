@@ -7,6 +7,19 @@ export default {
             fontFamily: {
                 "open-sans": ["Open Sans", "sans-serif"],
             },
+            animation: {
+                status: "status 5s linear forwards",
+            },
+            keyframes: {
+                status: {
+                    "0%": {
+                        width: "0",
+                    },
+                    "100%": {
+                        width: "100%",
+                    },
+                },
+            },
         },
     },
     plugins: [],

@@ -1,4 +1,4 @@
-import Input from "../ui/Input";
+import Input from "../../ui/Input";
 import { Search as SearchIcon } from "lucide-react";
 
 export default function Search() {

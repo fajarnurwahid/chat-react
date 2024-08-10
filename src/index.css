@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .swiper-status .swiper-pagination {
+        @apply !top-0 !left-0 !z-20 flex items-center h-8 px-5;
+        bottom: unset !important;
+    }
+    .swiper-status .swiper-pagination-bullet {
+        @apply w-full bg-white/20 rounded-full !opacity-100 overflow-hidden relative [&.swiper-pagination-bullet-active]:before:absolute [&.swiper-pagination-bullet-active]:before:top-0 [&.swiper-pagination-bullet-active]:before:left-0 [&.swiper-pagination-bullet-active]:before:h-full [&.swiper-pagination-bullet-active]:before:bg-white/50 [&.swiper-pagination-bullet-active]:before:animate-status;
+    }
+}

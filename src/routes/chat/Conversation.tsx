@@ -1,12 +1,12 @@
-import Bottom from "../components/conversation/bottom/Bottom";
-import Topbar from "../components/conversation/topbar/Topbar";
-import ConversationContactInfo from "../components/conversation/contact-info/ContactInfo";
-import Message from "../components/conversation/message/Message";
-import Search from "../components/conversation/Search";
+import Bottom from "../../components/conversation/bottom/Bottom";
+import Topbar from "../../components/conversation/topbar/Topbar";
+import ConversationContactInfo from "../../components/conversation/contact-info/ContactInfo";
+import Message from "../../components/conversation/message/Message";
+import Search from "../../components/conversation/Search";
 import {
     ConversationProvider,
     useConversationContext,
-} from "../contexts/ConversationContext";
+} from "../../contexts/ConversationContext";
 
 function ConversationWrapper() {
     const { isSearchOpen, isContactInfoOpen } = useConversationContext();
