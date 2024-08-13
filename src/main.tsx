@@ -3,12 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainRoot from "./routes/MainRoot";
-import ChatLayout from "./routes/chat/ChatLayout";
-import Chat from "./routes/chat/Chat";
-import ChatLayoutIndex from "./routes/chat/ChatLayoutIndex";
-import StatusLayout from "./routes/status/StatusLayout";
+import Chat from "./routes/message/Chat";
 import Status from "./routes/status/Status";
-import StatusLayoutIndex from "./routes/status/StatusLayoutIndex";
+import Contact from "./routes/message/Contact";
 
 const router = createBrowserRouter([
     {
@@ -17,36 +14,15 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <ChatLayoutIndex />,
+                element: <Chat />,
             },
             {
                 path: "status/",
-                children: [
-                    {
-                        index: true,
-                        element: <StatusLayoutIndex />,
-                    },
-                    {
-                        path: ":username/",
-                        element: <StatusLayout />,
-                        children: [
-                            {
-                                index: true,
-                                element: <Status />,
-                            },
-                        ],
-                    },
-                ],
+                element: <Status />,
             },
             {
-                path: ":username/",
-                element: <ChatLayout />,
-                children: [
-                    {
-                        index: true,
-                        element: <Chat />,
-                    },
-                ],
+                path: "contact/",
+                element: <Contact />,
             },
         ],
     },

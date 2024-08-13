@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useMainContext } from "../../../contexts/MainContext";
 
 type StatusGroupItemProps = {
     total: number;
     seen: number;
     username: string;
     image: string;
+    name: string;
+    time: string;
 };
 
 export default function StatusGroupItem({
@@ -13,6 +16,8 @@ export default function StatusGroupItem({
     seen,
     username,
     image,
+    name,
+    time,
 }: StatusGroupItemProps) {
     if (total < seen) {
         throw new Error(`'seen' cannot less than 'total'`);
@@ -20,6 +25,7 @@ export default function StatusGroupItem({
 
     const circle1Ref = useRef<SVGCircleElement>(null);
     const circle2Ref = useRef<SVGCircleElement>(null);
+    const { setUsername } = useMainContext();
 
     useEffect(() => {
         if (circle1Ref.current) {
@@ -42,10 +48,16 @@ export default function StatusGroupItem({
         }
     });
 
+    function handleClick(e: React.MouseEvent) {
+        e.preventDefault();
+        setUsername(username);
+    }
+
     return (
         <Link
-            to={`/status/${username}`}
-            className="flex items-center space-x-3 h-14 px-4 md:px-6 hover:bg-neutral-100 dark:hover:bg-neutral-900"
+            to="#"
+            className="flex items-center space-x-3 h-16 px-4 md:px-6 hover:bg-neutral-100 dark:hover:bg-neutral-900"
+            onClick={handleClick}
         >
             <div className="w-10 h-10 rounded-full flex-shrink-0 relative">
                 <img
@@ -79,9 +91,9 @@ export default function StatusGroupItem({
                 </svg>
             </div>
             <div className="min-w-0 w-full">
-                <p className="font-semibold text-sm mb-0.5">Jonathan</p>
+                <p className="font-semibold text-sm mb-1">{name}</p>
                 <p className="text-neutral-700 dark:text-neutral-300 text-xs">
-                    14:00
+                    {time}
                 </p>
             </div>
         </Link>

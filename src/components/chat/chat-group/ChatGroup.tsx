@@ -4,7 +4,7 @@ export default function ChatGroup() {
     return (
         <div className="overflow-y-auto min-h-0 h-full">
             <ChatGroupItem
-                to="/jonathan"
+                username="jonathan"
                 image="https://github.com/shadcn.png"
                 name="Jonathan"
                 lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"
@@ -12,7 +12,7 @@ export default function ChatGroup() {
                 unRead={5}
             />
             <ChatGroupItem
-                to="/johndoe"
+                username="johndoe"
                 image="https://github.com/shadcn.png"
                 name="John Doe"
                 lastMessage="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, vero!"

@@ -24,7 +24,7 @@ export default function ButtonGroup() {
         useConversationContext();
 
     return (
-        <div className="flex items-center space-x-1 md:space-x-2 flex-shrink-0">
+        <div className="flex items-center space-x-1 md:space-x-2 flex-shrink-0 ml-auto">
             <ButtonGroupItem
                 className={twMerge(
                     isSearchOpen &&

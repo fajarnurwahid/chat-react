@@ -1,4 +1,3 @@
-import { Link, LinkProps } from "react-router-dom";
 import {
     Check,
     CheckCheck,
@@ -15,8 +14,11 @@ import {
     PopoverTrigger,
 } from "../../ui/Popover";
 import { twMerge } from "tailwind-merge";
+import { useMainContext } from "../../../contexts/MainContext";
+import { Link } from "react-router-dom";
 
-type ChatGroupItemProps = LinkProps & {
+type ChatGroupItemProps = {
+    username: string;
     image: string;
     name: string;
     lastMessage: string;
@@ -26,18 +28,26 @@ type ChatGroupItemProps = LinkProps & {
 };
 
 export default function ChatGroupItem({
+    username,
     image,
     name,
     lastMessage,
     time,
     unRead = 0,
     isOnline = false,
-    ...props
 }: ChatGroupItemProps) {
+    const { setUsername } = useMainContext();
+
+    function handleClick(e: React.MouseEvent) {
+        e.preventDefault();
+        setUsername(username);
+    }
+
     return (
         <Link
-            className="px-4 md:px-6 h-16 hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center space-x-3 group/chat-item"
-            {...props}
+            to="#"
+            className="px-4 md:px-6 h-16 hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center w-full space-x-3 group/chat-item"
+            onClick={handleClick}
         >
             <div className="relative flex-shrink-0">
                 <img

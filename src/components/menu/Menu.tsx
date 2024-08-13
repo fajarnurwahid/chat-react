@@ -19,10 +19,17 @@ import {
     PopoverTrigger,
 } from "../ui/Popover";
 import useThemeContext from "../../contexts/ThemeContext";
+import { useMainContext } from "../../contexts/MainContext";
 
 export default function Menu() {
     const { theme, setTheme } = useThemeContext();
     const location = useLocation();
+    const { setType, setUsername } = useMainContext();
+
+    function changePage(type: "conversation" | "status") {
+        setUsername(null);
+        setType(type);
+    }
 
     return (
         <div className="w-full md:min-w-0 md:h-full md:w-16 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-700 flex items-center md:flex-col md:flex-shrink-0 fixed md:static z-10 bottom-0 left-0 border-t border-t-neutral-200 dark:border-t-neutral-700 md:border-t-0 bg-white dark:bg-neutral-800">
@@ -43,22 +50,9 @@ export default function Menu() {
                                         end: true,
                                     },
                                     location.pathname
-                                ) ||
-                                    (matchPath(
-                                        {
-                                            path: "/:username",
-                                            end: true,
-                                        },
-                                        location.pathname
-                                    ) &&
-                                        !matchPath(
-                                            {
-                                                path: "/status",
-                                                end: true,
-                                            },
-                                            location.pathname
-                                        ))
+                                )
                             )}
+                            onClick={() => changePage("conversation")}
                         >
                             <MessageCircleMore size={18} />
                         </MenuItem>
@@ -76,15 +70,9 @@ export default function Menu() {
                                         end: true,
                                     },
                                     location.pathname
-                                ) ||
-                                    matchPath(
-                                        {
-                                            path: "/status/:username",
-                                            end: true,
-                                        },
-                                        location.pathname
-                                    )
+                                )
                             )}
+                            onClick={() => changePage("status")}
                         >
                             <CircleDot size={18} />
                         </MenuItem>
@@ -93,7 +81,7 @@ export default function Menu() {
                 </Tooltip>
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
-                        <MenuItem to="/">
+                        <MenuItem to="/contact/">
                             <Contact2 size={18} />
                         </MenuItem>
                     </TooltipTrigger>
