@@ -6,6 +6,7 @@ import MainRoot from "./routes/MainRoot";
 import Chat from "./routes/message/Chat";
 import Status from "./routes/status/Status";
 import Contact from "./routes/message/Contact";
+import Setting from "./routes/message/Setting";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "contact/",
                 element: <Contact />,
+            },
+            {
+                path: "setting/",
+                element: <Setting />,
             },
         ],
     },

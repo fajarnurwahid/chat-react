@@ -1,0 +1,78 @@
+import ContactGroupDivider from "./ContactGroupDivider";
+import ContactGroupItem from "./ContactGroupItem";
+
+export default function ContactGroup() {
+    return (
+        <div className="overflow-y-auto min-h-0 h-full py-4 space-y-4">
+            <div>
+                <ContactGroupDivider>A</ContactGroupDivider>
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+            </div>
+            <div>
+                <ContactGroupDivider>B</ContactGroupDivider>
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+            </div>
+            <div>
+                <ContactGroupDivider>J</ContactGroupDivider>
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+                <ContactGroupItem
+                    name="Jonathan"
+                    username="jonathan"
+                    image="https://github.com/shadcn.png"
+                />
+            </div>
+        </div>
+    );
+}

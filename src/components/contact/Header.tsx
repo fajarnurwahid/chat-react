@@ -2,9 +2,9 @@ import { Plus } from "lucide-react";
 
 export default function Header() {
     return (
-        <div className="pt-6 pb-4 px-4 lg:px-6 flex-shrink-0 border-b border-b-neutral-200 dark:border-b-neutral-700">
-            <div className="flex items-center justify-between">
-                <h1 className="text-xl font-semibold">Status</h1>
+        <div className="px-4 lg:px-6 flex-shrink-0 border-b border-b-neutral-200 dark:border-b-neutral-700 flex items-center h-20">
+            <div className="flex items-center justify-between w-full">
+                <h1 className="text-xl font-semibold">Contact</h1>
                 <div className="flex items-center space-x-2">
                     <button
                         type="button"

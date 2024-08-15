@@ -24,12 +24,7 @@ import { useMainContext } from "../../contexts/MainContext";
 export default function Menu() {
     const { theme, setTheme } = useThemeContext();
     const location = useLocation();
-    const { setType, setUsername } = useMainContext();
-
-    function changePage(type: "conversation" | "status") {
-        setUsername(null);
-        setType(type);
-    }
+    const { setType, setUsername, username, type } = useMainContext();
 
     return (
         <div className="w-full md:min-w-0 md:h-full md:w-16 md:border-r md:border-r-neutral-200 dark:md:border-r-neutral-700 flex items-center md:flex-col md:flex-shrink-0 fixed md:static z-10 bottom-0 left-0 border-t border-t-neutral-200 dark:border-t-neutral-700 md:border-t-0 bg-white dark:bg-neutral-800">
@@ -52,7 +47,10 @@ export default function Menu() {
                                     location.pathname
                                 )
                             )}
-                            onClick={() => changePage("conversation")}
+                            onClick={() => {
+                                setUsername(null);
+                                setType("conversation");
+                            }}
                         >
                             <MessageCircleMore size={18} />
                         </MenuItem>
@@ -72,7 +70,10 @@ export default function Menu() {
                                     location.pathname
                                 )
                             )}
-                            onClick={() => changePage("status")}
+                            onClick={() => {
+                                setUsername(null);
+                                setType("status");
+                            }}
                         >
                             <CircleDot size={18} />
                         </MenuItem>
@@ -81,7 +82,24 @@ export default function Menu() {
                 </Tooltip>
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
-                        <MenuItem to="/contact/">
+                        <MenuItem
+                            to="/contact/"
+                            isActive={Boolean(
+                                matchPath(
+                                    {
+                                        path: "/contact",
+                                        end: true,
+                                    },
+                                    location.pathname
+                                )
+                            )}
+                            onClick={() => {
+                                if (type !== "conversation" && username) {
+                                    setUsername(null);
+                                }
+                                setType("conversation");
+                            }}
+                        >
                             <Contact2 size={18} />
                         </MenuItem>
                     </TooltipTrigger>
@@ -89,7 +107,24 @@ export default function Menu() {
                 </Tooltip>
                 <Tooltip placement="right">
                     <TooltipTrigger asChild>
-                        <MenuItem to="/">
+                        <MenuItem
+                            to="/setting/"
+                            isActive={Boolean(
+                                matchPath(
+                                    {
+                                        path: "/setting",
+                                        end: true,
+                                    },
+                                    location.pathname
+                                )
+                            )}
+                            onClick={() => {
+                                if (type !== "conversation" && username) {
+                                    setUsername(null);
+                                }
+                                setType("conversation");
+                            }}
+                        >
                             <Settings size={18} />
                         </MenuItem>
                     </TooltipTrigger>

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import Header from "../../components/contact/Header";
 import { useMainContext } from "../../contexts/MainContext";
-import ContactGroup from "../../components/contact/contact-group/ContactGroup";
+import Header from "../../components/setting/Header";
+import SettingGroup from "../../components/setting/setting-group/SettingGroup";
+import Profile from "../../components/setting/Profile";
 
-export default function Contact() {
+export default function Setting() {
     const { setType } = useMainContext();
 
     useEffect(() => {
@@ -13,7 +14,10 @@ export default function Contact() {
     return (
         <div className="h-full w-full lg:w-72 border-r border-r-neutral-200 dark:border-r-neutral-700 flex flex-col lg:flex-shrink-0 bg-white dark:bg-neutral-800 peer/conversation no-conversation">
             <Header />
-            <ContactGroup />
+            <div className="h-full overflow-y-auto min-h-0">
+                <Profile />
+                <SettingGroup />
+            </div>
         </div>
     );
 }

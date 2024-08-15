@@ -12,7 +12,7 @@ function ConversationWrapper() {
     const { isSearchOpen, isContactInfoOpen } = useConversationContext();
 
     return (
-        <div className="min-w-0 w-full flex">
+        <div className="min-w-0 w-full flex peer-[&.no-conversation]/conversation:hidden peer-[&.no-conversation]/conversation:lg:flex">
             <div className="min-w-0 w-full flex flex-col relative">
                 <Topbar />
                 {isSearchOpen && <Search />}

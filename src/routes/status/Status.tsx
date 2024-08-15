@@ -2,9 +2,14 @@ import { twMerge } from "tailwind-merge";
 import Header from "../../components/status/Header";
 import StatusGroup from "../../components/status/status-group/StatusGroup";
 import { useMainContext } from "../../contexts/MainContext";
+import { useEffect } from "react";
 
 export default function Status() {
-    const { username } = useMainContext();
+    const { username, setType } = useMainContext();
+
+    useEffect(() => {
+        setType("status");
+    }, []);
 
     return (
         <div
