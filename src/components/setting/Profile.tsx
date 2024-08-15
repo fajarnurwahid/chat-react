@@ -11,13 +11,15 @@ export default function Profile() {
                 />
                 <button
                     type="button"
-                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-neutral-100 rounded-full border border-neutral-200 flex items-center justify-center hover:bg-neutral-200 shadow-md"
+                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-neutral-100 dark:bg-neutral-900 rounded-full border border-neutral-200 dark:border-neutral-700 flex items-center justify-center hover:bg-neutral-200 dark:hover:bg-neutral-950 shadow-md"
                 >
                     <Camera size={14} />
                 </button>
             </div>
             <h1 className="text-base font-medium text-center mb-1">Jonathan</h1>
-            <p className="text-center text-xs text-neutral-500">@jonathan</p>
+            <p className="text-center text-xs text-neutral-500 dark:text-neutral-400">
+                @jonathan
+            </p>
         </div>
     );
 }
